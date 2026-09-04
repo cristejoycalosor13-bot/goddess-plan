@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { WORKOUT_DAYS, MEAL_SLOTS, slotMeals, suggestMeals } from '../data/workouts';
+import { WORKOUT_DAYS, MEAL_SLOTS, mealSlots, slotMeals, suggestMeals } from '../data/workouts';
 import IngredientDetailPage from './IngredientDetailPage';
 import LiftTracker from './LiftTracker';
 import { loadLifts, isTrackable } from '../utils/lifts';
@@ -14,11 +14,11 @@ const jsDay      = new Date().getDay();
 const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
 
 const GRID_DAYS = [
-  { lbl: 'Mon', emoji: '🍑', name: 'Glutes & Quads', focus: 'Squat · Bulgarian · Hip Thrust', color: 'pr' },
-  { lbl: 'Tue', emoji: '💪', name: 'Upper A',  focus: 'Back · Shoulders · Rope · Walk',   color: 'py' },
-  { lbl: 'Wed', emoji: '🔥', name: 'Glute Isolation', focus: 'Kickback · Abduction · Kas',  color: 'pr' },
-  { lbl: 'Thu', emoji: '⚡', name: 'Upper B',  focus: 'Back · Shoulders · Rope · Walk',   color: 'py' },
-  { lbl: 'Fri', emoji: '✨', name: 'Glutes & Hams', focus: 'RDL · Curl · Pull-Through',       color: 'pr' },
+  { lbl: 'Mon', emoji: '🍑', name: 'Glutes & Quads', focus: 'Squat · Bulgarian · RDL',      color: 'pr' },
+  { lbl: 'Tue', emoji: '💪', name: 'Back & Core',    focus: 'Pull-Apart · Row · Core',      color: 'py' },
+  { lbl: 'Wed', emoji: '🔥', name: 'Glute Isolation', focus: 'Kickback · Abduction · Sumo', color: 'pr' },
+  { lbl: 'Thu', emoji: '⚡', name: 'Back & Core',    focus: 'Pull-Apart · Row · Core',      color: 'py' },
+  { lbl: 'Fri', emoji: '✨', name: 'Glutes & Hams',  focus: 'Hip Thrust · RDL · Squat',     color: 'pr' },
   { lbl: 'Sat', emoji: '🏃', name: 'Run & Skill', focus: 'Easy Run · Forearm Stand · Stretch', color: 'py' },
   { lbl: 'Sun', emoji: '⚡', name: 'Sprints',    focus: 'Sprints · Forearm Stand · Stretch', color: 'py' },
 ];
@@ -46,17 +46,19 @@ function useDayMeals(dayId) {
   return [items, save];
 }
 
-// The meal plan reads as a clock: three meal times, 10 AM → 2 PM → 5 PM. Each
-// time opens with a short list of picks chosen for that day — fish on glute
-// days, tofu or eggs otherwise — and "more choices" reveals the rest of the
-// slot if none of them appeal. Tap a meal for the ingredients, the
-// step-by-step method, and to add it to today.
+// The meal plan reads as a clock, and the clock depends on the day: a glute
+// day starts on waking and runs three meals, a core day opens at noon and
+// closes at five with two. Each time opens with a short list of picks chosen
+// for that day — fish only on glute days — and "more choices" reveals the
+// rest of the slot if none of them appeal. Tap a meal for the ingredients,
+// the step-by-step method, and to add it to today.
 function MealBuilder({ dayId, dayIndex, baseMeals }) {
   const [chosen, saveChosen] = useDayMeals(dayId);
   const [openSlot, setOpenSlot] = useState(null);
   const [showAll, setShowAll]   = useState({});
   const [detail, setDetail]     = useState(null);
   const mealMode = baseMeals.mealMode || 'light';
+  const slots    = mealSlots(mealMode);
 
   function toggleChosen(name) {
     saveChosen(chosen.includes(name) ? chosen.filter(n => n !== name) : [...chosen, name]);
@@ -80,13 +82,13 @@ function MealBuilder({ dayId, dayIndex, baseMeals }) {
         <div className="meal-plan-label">{baseMeals.label}</div>
         <div className="meal-plan-hint">
           {mealMode === 'glute'
-            ? 'Fish day — you only eat fish on glute days (Mon · Wed · Fri). Tap a meal time to see today’s picks.'
-            : 'No fish today — tofu or eggs at 10 AM. Tap a meal time to see today’s picks.'}
+            ? 'You eat from the moment you wake today, because you are lifting. A banana on both sides of the session. Fish is a glute-day food only.'
+            : 'Nothing before noon, nothing after five. Two meals in that window — no fish today.'}
         </div>
       </div>
 
       <div className="meal-times">
-        {MEAL_SLOTS.map(slot => {
+        {slots.map(slot => {
           const all       = slotMeals(slot.id, mealMode);
           const suggested = suggestMeals(slot.id, mealMode, dayIndex);
           const rest      = all.filter(m => !suggested.includes(m));
@@ -115,7 +117,7 @@ function MealBuilder({ dayId, dayIndex, baseMeals }) {
               {isOpen && (
                 <div className="meal-time-body">
                   <div className="meal-sug-label">
-                    {slot.id === 'am' && mealMode === 'glute' ? '🐟 Today’s picks · glute day' : '✨ Today’s picks'}
+                    {slot.id === 'post' ? '🍌 Banana first — then one of these' : '✨ Today’s picks'}
                   </div>
                   <div className="meal-pills">
                     {suggested.map(m => <Pill key={m.name} m={m} />)}

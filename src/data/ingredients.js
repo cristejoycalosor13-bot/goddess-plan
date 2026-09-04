@@ -896,6 +896,51 @@ export const INGREDIENT_RECIPES = {
     ],
   },
 
+  yogurtbowl: {
+    emoji: '🥣',
+    color: 'rgba(200,180,255,0.08)',
+    tagline: 'Made the night before — protein, fibre and berries in one jar',
+    options: [
+      {
+        name: 'The Overnight Yogurt Bowl',
+        emoji: '🫐',
+        time: '3 min + overnight',
+        steps: [
+          'Spoon plain unsweetened yogurt into a jar or bowl — about a cup.',
+          'Add 1 scoop of protein powder and stir until there are no dry pockets left. Do this before the psyllium goes in, or it will never mix smoothly.',
+          'Add 1 tsp psyllium husk and keep stirring straight away — it starts thickening within seconds.',
+          'Drop 10 blueberries on top, cover, and leave it in the fridge overnight.',
+          'Eat it cold: on waking before a glute session, or at 12 PM on a back, shoulder and core day.',
+        ],
+        tip: 'Always drink a full glass of water with it. Psyllium husk pulls water in to do its job — without enough, it does the opposite of what you want.',
+      },
+      {
+        name: 'Thicker Version',
+        emoji: '🥄',
+        time: '3 min + overnight',
+        steps: [
+          'Same build, but use 2 tsp psyllium husk instead of 1.',
+          'Add 2–3 tbsp of water as you stir so it does not seize into a solid block.',
+          'Leave it overnight — it sets to a spoonable pudding.',
+          'Berries on top in the morning rather than the night before, so they stay firm.',
+        ],
+        tip: 'Use this one on days you know you will be hungry early. It stays with you noticeably longer than the standard bowl.',
+      },
+      {
+        name: 'Fruit-Forward Version',
+        emoji: '🥭',
+        time: '5 min + overnight',
+        steps: [
+          'Build the base as usual: yogurt, protein powder, psyllium husk.',
+          'Layer half a mashed banana or a few spoons of mango through the middle.',
+          'Finish with the 10 blueberries on top.',
+          'Set overnight. The fruit sweetens the whole jar so nothing else is needed.',
+        ],
+        tip: 'No honey, no sugar, no sweetened yogurt. If it needs sweetening, use riper fruit instead.',
+      },
+    ],
+  },
+
   chia: {
     emoji: '🫙',
     color: 'rgba(100,80,220,0.07)',

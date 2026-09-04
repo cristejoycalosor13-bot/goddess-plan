@@ -3,8 +3,8 @@ import { INGREDIENT_RECIPES } from '../data/ingredients';
 import IngredientDetailPage from './IngredientDetailPage';
 
 export const TABS = [
-  { id: 'meat',    icon: '🐟', title: 'Glute Days · Fish Days',  desc: 'Monday, Wednesday & Friday — the only days you eat fish. 10 AM fish & fats, 2 PM smoothie bowl, 5 PM egg with sweet potato or banana.' },
-  { id: 'light',   icon: '🌱', title: 'Non-Glute Days',          desc: 'Tuesday, Thursday, Saturday & Sunday — tofu or eggs at 10 AM, smoothie bowl at 2 PM, egg with sweet potato or banana at 5 PM.' },
+  { id: 'meat',    icon: '🍑', title: 'Glute Days · Mon · Wed · Fri', desc: 'You eat from the moment you wake, because you are lifting. Banana & coffee on waking, banana & protein after training, protein & carbs at 5 PM.' },
+  { id: 'light',   icon: '🌱', title: 'Core Days · Tue · Thu · Sat · Sun', desc: 'Nothing before noon, nothing after five. Yogurt bowl or fruit at 12 PM, egg & sweet potato at 5 PM.' },
   { id: 'recipes', icon: '🥘', title: 'Recipes & Hydration',    desc: 'Prep every food — steamed, boiled, oil-free. Tap for methods.' },
   { id: 'guide',   icon: '📊', title: 'Food Guide',             desc: 'Eat/avoid rules for a flat stomach and calm gut.' },
 ];
@@ -12,11 +12,17 @@ export const TABS = [
 /* ─── RECIPE CATEGORIES shown in the Recipes tab ─── */
 const RECIPE_CATEGORIES = [
   {
-    title: 'Protein (fish on glute days · tofu & eggs otherwise)',
+    title: 'Protein (fish on glute days · eggs & tofu any day)',
     items: [
       { key: 'egg',     label: 'Eggs' },
       { key: 'fish',    label: 'Fish' },
       { key: 'tofu',    label: 'Tofu' },
+    ],
+  },
+  {
+    title: 'The Yogurt Bowl (make it the night before)',
+    items: [
+      { key: 'yogurtbowl', label: 'Yogurt Bowl' },
     ],
   },
   {
@@ -41,82 +47,82 @@ const RECIPE_CATEGORIES = [
   },
 ];
 
-/* ─── GLUTE DAYS · FISH DAYS (Mon, Wed, Fri) ─── */
+/* ─── GLUTE DAYS (Mon, Wed, Fri) ─── */
 export function MeatDays() {
   return (
     <>
       <div className="note-box note-rose" style={{ marginBottom: 14 }}>
-        🍑 <strong>Glute days: Monday, Wednesday &amp; Friday.</strong> These are your <strong>only fish days</strong> — the days you train glutes are the days you eat fish.
+        🍑 <strong>Glute days: Monday, Wednesday &amp; Friday.</strong> These are the days you eat early, because you are about to lift. They are also your <strong>only fish days</strong>.
       </div>
       <div className="note-box note-gold" style={{ marginBottom: 18 }}>
-        💡 <strong>Why fish today?</strong> Your glutes grow on protein, and training day is when your body uses it best. Same three meal times as every other day.
+        🍌 <strong>A banana on both sides of the session.</strong> One before, so you have fuel in your legs. One straight after, so you put back what you burned. This is the non-negotiable part of a glute day.
       </div>
       <div className="g-card splash-item" style={{ marginBottom: 18 }}>
         <div className="hyd-timeline">
           <div className="hyd-row">
-            <div className="hyd-time">10:00 AM</div>
+            <div className="hyd-time">On waking</div>
             <div>
-              <div className="hyd-d">Protein &amp; fats</div>
-              <div className="hyd-n">Salmon, sardines, tuna, tilapia or any white fish — plus a good fat like avocado or chia. Veggies on the side. Oil-free, no salt.</div>
+              <div className="hyd-d">Banana &amp; coffee</div>
+              <div className="hyd-n">Eat the moment you get up — banana first, coffee second. Any carb works if you would rather: sweet potato, mango, a fruit plate. Or have the overnight yogurt bowl instead.</div>
             </div>
           </div>
           <div className="hyd-row">
-            <div className="hyd-time">2:00 PM</div>
+            <div className="hyd-time">After training</div>
             <div>
-              <div className="hyd-d">Smoothie bowl</div>
-              <div className="hyd-n">Three fruits blended thick with a splash of water. Top with chia. No milk, no sugar.</div>
+              <div className="hyd-d">Banana &amp; protein</div>
+              <div className="hyd-n">Second banana straight after the last set, then your protein — fish, eggs or tofu. Salmon, sardines, tuna, tilapia, any fish. Oil-free, no salt.</div>
             </div>
           </div>
           <div className="hyd-row">
             <div className="hyd-time">5:00 PM</div>
             <div>
-              <div className="hyd-d">Last meal · sunset — egg with sweet potato or banana</div>
-              <div className="hyd-n">Slow carbs to keep you full all night. Nothing after sunset — spearmint or ginger tea only.</div>
+              <div className="hyd-d">Protein again + any carbs you want</div>
+              <div className="hyd-n">Protein a second time, and this is the meal where carbs are open — rice, sweet potato, banana, whatever you feel like. Nothing after sunset except tea.</div>
             </div>
           </div>
         </div>
       </div>
       <div className="note-box note-rose">
-        🐟 <strong>Protein for the glutes:</strong> salmon, sardines, tuna, tilapia, any fish. Eat the protein first, then your fats and veggies. No chicken, beef or pork on any day.
+        🐟 <strong>Protein for the glutes:</strong> fish, eggs or tofu — nothing else. No chicken, beef or pork on any day. Eat the protein first, then your fats and veggies.
       </div>
     </>
   );
 }
 
-/* ─── NON-GLUTE DAYS (Tue, Thu, Sat, Sun) ─── */
+/* ─── CORE DAYS (Tue, Thu, Sat, Sun) — the 12–5 window ─── */
 export function LightDays() {
   return (
     <>
       <div className="note-box note-gold" style={{ marginBottom: 14 }}>
-        🌱 <strong>Non-glute days: Tuesday, Thursday, Saturday &amp; Sunday.</strong> No fish today — tofu or eggs at 10 AM instead. Same three meal times, same 5 PM sunset finish.
+        🌱 <strong>Back, shoulder &amp; core days — plus the weekend.</strong> Tuesday, Thursday, Saturday &amp; Sunday. Nothing before <strong>12 PM</strong>, nothing after <strong>5 PM</strong>. Two meals inside that five-hour window.
       </div>
       <div className="g-card splash-item" style={{ marginBottom: 18 }}>
         <div className="hyd-timeline">
           <div className="hyd-row">
-            <div className="hyd-time">10:00 AM</div>
+            <div className="hyd-time">Morning</div>
             <div>
-              <div className="hyd-d">Protein &amp; fats</div>
-              <div className="hyd-n">Tofu or eggs — scrambled, boiled, steamed or seared dry — with avocado or chia for the fats. No fish today.</div>
+              <div className="hyd-d">Nothing yet — water, black coffee or tea</div>
+              <div className="hyd-n">The fast runs until noon. Train on it if you want; these are the light days, so it holds up fine.</div>
             </div>
           </div>
           <div className="hyd-row">
-            <div className="hyd-time">2:00 PM</div>
+            <div className="hyd-time">12:00 PM</div>
             <div>
-              <div className="hyd-d">Smoothie bowl</div>
-              <div className="hyd-n">Three fruits blended thick with chia on top. Water or green tea alongside.</div>
+              <div className="hyd-d">Yogurt bowl, or mostly fruit</div>
+              <div className="hyd-n">Either the overnight yogurt bowl — yogurt, protein powder, psyllium husk and 10 blueberries — or a plate of fruit: papaya, mango, banana, berries, watermelon.</div>
             </div>
           </div>
           <div className="hyd-row">
             <div className="hyd-time">5:00 PM</div>
             <div>
-              <div className="hyd-d">Last meal · sunset — egg with sweet potato or banana</div>
-              <div className="hyd-n">Your fullest meal of the day in slow carbs. Nothing after sunset — spearmint or ginger tea only.</div>
+              <div className="hyd-d">Egg &amp; sweet potato</div>
+              <div className="hyd-n">Or something like it — the point is protein plus a slow carb to close the window. No fish today. Nothing after five except spearmint or ginger tea.</div>
             </div>
           </div>
         </div>
       </div>
       <div className="note-box note-rose">
-        🌸 This is not starvation — three real meals, just no fish today. Your 20-minute cool-down walk still happens after training, then nothing but tea.
+        🥣 <strong>The yogurt bowl is made the night before.</strong> Yogurt, a scoop of protein powder, a teaspoon of psyllium husk, 10 blueberries. It sets overnight and is ready whenever you break the fast — noon on these days, or on waking before a glute session.
       </div>
     </>
   );
@@ -142,8 +148,8 @@ export function RecipeCard({ itemKey, label, onSelect }) {
 function HydrationSection() {
   const rows = [
     { time: 'On waking',   d: '500ml warm water + fresh lemon or calamansi',   n: 'Wake digestion and add Vitamin C before anything else.' },
-    { time: 'Between meals', d: 'Plain water + green tea (unsweetened)',        n: 'Sip between your 10 AM, 2 PM, and 5 PM meals. Water and green tea support fullness, metabolism, and clear skin.' },
-    { time: 'Psyllium',    d: '1 tbsp psyllium husk in a full glass of water',  n: 'Take between meals to stay full and support digestion.' },
+    { time: 'Between meals', d: 'Plain water + green tea (unsweetened)',        n: 'Sip between meals on both day types — and all through the morning fast on core days. Water and green tea support fullness, metabolism, and clear skin.' },
+    { time: 'Psyllium',    d: '1 tbsp psyllium husk in a full glass of water',  n: 'Take between meals to stay full and support digestion. Already in the yogurt bowl — always drink a full glass of water with it.' },
     { time: '5 PM meal',   d: 'Water — sip, don\'t gulp · collagen optional',   n: 'Sip around your meal; do not drown it. Dairy-free collagen supports skin, hair, joints, and gut.' },
     { time: 'After sunset', d: 'Spearmint or ginger tea',                       n: 'Drink after your last meal. No food after 5 PM.' },
     { time: 'All day',     d: 'Plain water — 2–2.5L total, sipped slowly',      n: 'Sip steadily to reduce bloat and puffiness.' },
@@ -201,11 +207,11 @@ export function FoodGuide() {
     { food: 'Kiwi', note: 'Actinidin + high Vitamin C for collagen support. Low-bloat.' },
     { food: 'Watermelon', note: 'Hydrating, low calorie. Eat alone; it digests fast.' },
     { food: 'Berries', note: 'Lowest-sugar fruit, high fibre and antioxidants. Gentle on the gut, great any day.' },
-    { food: 'Banana', note: 'Potassium reduces water retention. Best on sprint/glute days for quick fuel.' },
+    { food: 'Banana', note: 'The glute-day fuel — one before training and one straight after, every time. Potassium also reduces water retention.' },
     { food: 'Apple', note: 'Pectin fibre feeds good gut bacteria. Eat with the skin. Any day.' },
-    { food: 'Chicken breast 150g', note: 'Glute + sprint days. ~46g protein. Steam, boil, or bake — never fry.' },
-    { food: 'Fish (tilapia/bangus)', note: 'Glute + sprint days. Omega-3 lowers inflammation. Steam with ginger + lemon.' },
-    { food: 'Eggs (boiled/poached)', note: 'Lean protein for glute days. No oil, no butter. ~6g protein each.' },
+    { food: 'Yogurt bowl', note: 'Plain yogurt + protein powder + psyllium husk + 10 blueberries, set overnight. Noon on core days, or on waking before a glute session.' },
+    { food: 'Fish (tilapia/bangus)', note: 'Glute days only (Mon · Wed · Fri). Omega-3 lowers inflammation. Steam with ginger + lemon.' },
+    { food: 'Eggs (boiled/poached)', note: 'Any day — after training on glute days, and the 5 PM meal on core days. No oil, no butter. ~6g protein each.' },
     { food: 'Zucchini / carrots / spinach', note: 'Low-bloat vegetables. Steam them, no oil.' },
     { food: 'Cucumber', note: 'Eat freely, raw. 95% water, naturally anti-bloating.' },
     { food: 'Avocado', note: '½ per serving. Natural fat for hormones (this is a whole food, not an added oil).' },
@@ -213,7 +219,7 @@ export function FoodGuide() {
   const avoid = [
     { food: 'Gluten — bread, pasta, pandesal, flour', note: 'The G in GODSSSS. Causes bloating and water retention.' },
     { food: 'Oils — fried food, cooking oil', note: 'The O. Steam and boil instead. Whole-food fats (avocado) are fine; added oils are not.' },
-    { food: 'Dairy — milk, cheese, yogurt', note: 'The D. Triggers bloating and hormonal breakouts. Use dairy-free collagen instead.' },
+    { food: 'Dairy — milk, cheese, cream', note: 'The D. Triggers bloating and hormonal breakouts. Use dairy-free collagen instead. The one exception is the yogurt in your overnight bowl — plain and unsweetened, nothing else.' },
     { food: 'Added sugar & sweets', note: 'The first S. Ages skin (glycation), feeds bad gut bacteria. Get sweetness from fruit only.' },
     { food: 'Salty / processed food', note: 'The second S. Salt = water retention = puffiness. Season lightly.' },
     { food: 'White rice', note: 'Spikes blood sugar fast. Sweet potato in small amounts is the better carb.' },
@@ -340,9 +346,9 @@ export default function Nutrition({ initialTab, onNavigate, pushBack, clearInner
   return (
     <div className="section">
       <div className="s-header">
-        <div className="s-tag">Fuel Protocol · 10 AM · 2 PM · 5 PM</div>
+        <div className="s-tag">Fuel Protocol · two clocks, one for each kind of day</div>
         <h2 className="s-title">Nutrition <em>&amp; Recipes</em></h2>
-        <p className="s-desc">10 AM protein &amp; fats · 2 PM smoothie bowl · 5 PM sweet potato &amp; banana at sunset · nothing after. Meat only on glute days (Mon · Wed · Fri).</p>
+        <p className="s-desc">Glute days you eat on waking — banana &amp; coffee, banana &amp; protein after training, protein &amp; carbs at 5 PM. Every other day is a 12–5 window: yogurt bowl or fruit at noon, egg &amp; sweet potato at five. Fish only on glute days.</p>
       </div>
       <div className="nutr-landing splash-item">
         {TABS.map(t => (

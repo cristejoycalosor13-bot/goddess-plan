@@ -72,9 +72,6 @@
   animation: none;
 }
 [data-mode="light"] .bg-aurora  { display: none; }
-[data-mode="light"] .sparkle-layer { display: none; }
-[data-mode="light"] .cloud-layer { opacity: 0.25; }
-[data-mode="light"] .petal { opacity: 0.6; }
 /* Light mode: fix hardcoded dark card/note backgrounds */
 [data-mode="light"] .note-gold { background: rgba(255,248,220,0.9); color: #5a3800; }
 [data-mode="light"] .note-rose { background: rgba(255,235,245,0.9); color: #7a1050; }
@@ -331,97 +328,24 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ─── BACKGROUND — dark base · single warm pink-gold glow ─── */
+/* ─── BACKGROUND — one still deep-violet ground, no motion ─── */
 .bg-layer {
   position: fixed;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 78% 48% at 50% 22%, rgba(235,80,160,0.48) 0%, rgba(225,165,50,0.20) 38%, transparent 68%),
+    radial-gradient(ellipse 120% 40% at 50% -8%, rgba(196,74,138,0.15) 0%, rgba(120,48,110,0.05) 44%, transparent 72%),
     #07040f;
-  animation: bgDream 22s ease-in-out infinite alternate;
 }
-@keyframes bgDream {
-  0%   { opacity: 1; }
-  25%  { opacity: 0.93; }
-  50%  { opacity: 0.97; }
-  75%  { opacity: 0.90; }
-  100% { opacity: 0.95; }
-}
-
-/* Subtle drift — barely visible, just adds gentle life to the glow */
+/* A faint warm wash at the very bottom so a long scroll never ends in flat black */
 .bg-aurora {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 30% at 50% 20%, rgba(235,80,160,0.10) 0%, transparent 60%);
-  animation: auroraDrift 28s ease-in-out infinite alternate;
+    radial-gradient(ellipse 90% 32% at 50% 108%, rgba(150,66,54,0.09) 0%, transparent 66%);
 }
-@keyframes auroraDrift {
-  0%   { opacity: 0.65; transform: translate(0, 0); }
-  33%  { opacity: 1;    transform: translate(12px, -8px); }
-  66%  { opacity: 0.72; transform: translate(-8px, 5px); }
-  100% { opacity: 0.90; transform: translate(6px, -4px); }
-}
-
-/* Cloud layer — transparent, no color added */
-.cloud-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: transparent;
-  animation: cloudGlow 30s ease-in-out infinite alternate;
-}
-@keyframes cloudGlow {
-  0%   { opacity: 0.78; }
-  50%  { opacity: 1; }
-  100% { opacity: 0.84; }
-}
-
-/* Star/sparkle field — white stars with orange-gold and magenta glow */
-.sparkle-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.sparkle-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  box-shadow:
-    0 0 3px 1px rgba(255,255,255,0.95),
-    0 0 8px 3px rgba(255,120,180,0.65),
-    0 0 18px 6px rgba(210,40,140,0.28);
-  animation: sparkleTwinkle ease-in-out infinite;
-}
-@keyframes sparkleTwinkle {
-  0%, 100% { opacity: 0;   transform: scale(0.1); }
-  45%       { opacity: 0.9; transform: scale(1);   }
-  55%       { opacity: 0.9; transform: scale(1);   }
-}
-
-/* floating flowers */
-.petal {
-  position: fixed;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  line-height: 1;
-  user-select: none;
-  animation: petalFloat linear infinite;
-}
-@keyframes petalFloat {
-  0%   { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; }
-  10%  { opacity: 0.28; }
-  90%  { opacity: 0.18; }
-  100% { transform: translateY(-10vh) rotate(300deg) scale(1.1); opacity: 0; }
-}
-
 /* ─── NAV ─── */
 /* ─── SEARCH BAR — fixed at very top, full width ─── */
 .search-bar-fixed {
@@ -8271,7 +8195,7 @@ body {
 .meal-pill-cal { font-size: 10.5px; font-weight: 700; color: var(--text-mid, #c090b8); flex: none; }
 .meal-pill-check { color: #7fe3a8; font-weight: 800; flex: none; }
 
-/* ── Meal times: the day as a clock — 10 AM · 2 PM · 5 PM ── */
+/* ── Meal times: the day as a clock — glute days run three, core days two ── */
 .meal-times { display: flex; flex-direction: column; gap: 10px; }
 .meal-time {
   background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);

@@ -66,7 +66,7 @@ const SEARCH_INDEX = [
   { label: 'Abs Videos — Pilates by Izzy', hint: 'Workouts → Upper Body days', section: 'workout', scrollTo: 'day-tuesday' },
   { label: 'Forearm Stand Training',  hint: 'Workouts → Saturday & Sunday',  section: 'workout', scrollTo: 'day-saturday'  },
   { label: 'Full Body Pilates — Move With Nicole', hint: 'Workouts → Rest days', section: 'workout', scrollTo: 'day-saturday' },
-  { label: 'Meal Times — 10 AM · 2 PM · 5 PM',  hint: 'Nutrition → Everyday Meals', section: 'nutrition', tab: 'light' },
+  { label: 'Meal Times — glute days & core days',  hint: 'Nutrition → Everyday Meals', section: 'nutrition', tab: 'light' },
   { label: 'Chicken — Cooking Methods',        hint: 'Nutrition → Recipes',      section: 'nutrition', tab: 'recipes' },
   { label: 'Fish — Steamed & Baked',           hint: 'Nutrition → Recipes',      section: 'nutrition', tab: 'recipes' },
   { label: 'Low-Bloat Fruits',                 hint: 'Nutrition → Food Guide',   section: 'nutrition', tab: 'guide'   },
@@ -95,68 +95,7 @@ const SEARCH_INDEX = [
   { label: 'Food Guide',                   hint: 'Workouts → Nutrition',      section: 'workout' },
 ];
 
-const FLOWER_EMOJIS = ['🌸', '🌺', '🌼', '🌸', '🌷', '💐', '🌸', '🌺'];
 
-const PETALS = Array.from({ length: 10 }, (_, i) => ({
-  id: i,
-  size: Math.random() * 10 + 12,
-  left: Math.random() * 100,
-  flower: FLOWER_EMOJIS[Math.floor(Math.random() * FLOWER_EMOJIS.length)],
-  duration: Math.random() * 20 + 14,
-  delay: Math.random() * -28,
-}));
-
-// Twinkling star-sparkles scattered across the upper sky (matches the image)
-const SPARKLES = Array.from({ length: 16 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 65,       // upper 65% of screen only
-  size: Math.random() * 2.5 + 0.8,
-  delay: Math.random() * 6,
-  duration: Math.random() * 2.5 + 1.5,
-}));
-
-function FloatingFlowers() {
-  return (
-    <>
-      {PETALS.map(p => (
-        <div
-          key={p.id}
-          className="petal"
-          style={{
-            fontSize: p.size,
-            left: `${p.left}%`,
-            animationDuration: `${p.duration}s`,
-            animationDelay: `${p.delay}s`,
-          }}
-        >
-          {p.flower}
-        </div>
-      ))}
-    </>
-  );
-}
-
-function AtmosphericSparkles() {
-  return (
-    <div className="sparkle-layer">
-      {SPARKLES.map(s => (
-        <div
-          key={s.id}
-          className="sparkle-dot"
-          style={{
-            left: `${s.x}%`,
-            top: `${s.y}%`,
-            width: `${s.size}px`,
-            height: `${s.size}px`,
-            animationDelay: `${s.delay}s`,
-            animationDuration: `${s.duration}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 function SearchBar({ onNavigate, onClose }) {
   const [query, setQuery] = useState('');
@@ -382,9 +321,6 @@ export default function App() {
     <>
       <div className="bg-layer" />
       <div className="bg-aurora" />
-      <div className="cloud-layer" />
-      <AtmosphericSparkles />
-      <FloatingFlowers />
     </>
   );
 

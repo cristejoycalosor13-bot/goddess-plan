@@ -89,13 +89,13 @@ export const MONTHS = [
   // August — Journey month 3
   {
     name: 'August',
-    ch: 'Three Meals — 10 AM · 2 PM · 5 PM',
-    why: "Anchor the day on three fixed meal times: protein and fats at 10 AM, a smoothie bowl at 2 PM, and sweet potato with banana at 5 PM to carry you through the night.",
+    ch: 'Two Clocks — Glute Days & Core Days',
+    why: "Learn the two eating clocks. On glute days you eat from the moment you wake: banana and coffee, banana and protein after training, protein and carbs at 5 PM. On every other day nothing passes your lips before noon or after five.",
     tasks: [
-      'Week 1 — Hit all three meal times every day. Water, tea, and psyllium husk in between.',
-      'Week 2 — Build the 10 AM meal: protein plus a good fat (avocado, chia, nuts). Meat only on glute days.',
-      'Week 3 — Choose low-bloat fruits for your bowls (papaya, pineapple, kiwi, berries, dragon fruit).',
-      'Week 4 — Make the 5 PM sunset finish automatic. Nothing after — tea only.',
+      'Week 1 — Get the glute-day banana right: one before training, one straight after. Every single session.',
+      'Week 2 — Hold the 12–5 window on Tue, Thu, Sat and Sun. Water, tea and psyllium through the morning fast.',
+      'Week 3 — Make the overnight yogurt bowl on Sunday night and keep making it. Yogurt, protein powder, psyllium, 10 blueberries.',
+      'Week 4 — Make the 5 PM sunset finish automatic on both kinds of day. Nothing after — tea only.',
     ],
   },
   // September — Journey month 4
@@ -105,8 +105,8 @@ export const MONTHS = [
     why: "Walk 15 minutes after eating to move digestion, blunt blood sugar spikes, and reduce bloating.",
     tasks: [
       'Week 1 — Walk 15 min after your 5 PM meal, every day.',
-      'Week 2 — Lock in the 20-min walk after every workout, glute and upper-body days alike.',
-      'Week 3 — Add the full-body stretch warm-up before every session, and 10–20 min of jump rope after both upper-body days.',
+      'Week 2 — Lock in the 20-min walk after every glute day, and rope or walk to finish the core days.',
+      'Week 3 — Add the full-body stretch warm-up before every session, and the stomach vacuum on both core days.',
       'Week 4 — Make post-meal walks automatic. Notice digestion and energy.',
     ],
   },
@@ -138,9 +138,9 @@ export const MONTHS = [
   {
     name: 'December',
     ch: 'Gut Healing — Meal Rhythm Mastery',
-    why: "Tie the rhythm together: 10 AM protein and fats, 2 PM smoothie bowl, 5 PM sweet potato and banana at sunset. Meat lands on glute days only.",
+    why: "Tie the rhythm together: glute days eat early and eat three times, core days hold the 12–5 window and eat twice. Fish lands on glute days only.",
     tasks: [
-      'Week 1 — Hit all three meal times daily. Meat on Mon/Wed/Fri, smoothie bowls and fruit the rest.',
+      'Week 1 — Run both clocks without thinking about it. Fish on Mon/Wed/Fri, yogurt bowls and fruit the rest.',
       'Week 2 — Steam or boil all veg — no oils, no dairy, no gluten (GODSSSS out).',
       'Week 3 — Notice your trigger foods; drop anything that bloats you even a little.',
       'Week 4 — Gut calm, stomach flat. Journal bloating, skin, and mood vs. June.',

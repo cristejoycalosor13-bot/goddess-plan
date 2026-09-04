@@ -43,7 +43,7 @@ const RULE_BOARDS = [
     tone: 'yes',
     items: [
       ['P', 'Protein', 'meat on glute days · eggs & yogurt otherwise'],
-      ['F', 'Fruit', 'smoothie bowls at 10 AM & 2 PM'],
+      ['F', 'Fruit', 'the 12 PM meal on core days'],
       ['B', 'Bland', 'simple food, calm gut'],
       ['S', 'Small', 'steady portions'],
     ],
@@ -54,7 +54,7 @@ const RULE_BOARDS = [
     tone: 'yes',
     items: [
       ['S', 'Small bites', 'put the fork down'],
-      ['L', 'Last meal', '5 PM at sunset — sweet potato & banana'],
+      ['L', 'Last meal', '5 PM at sunset — protein & slow carbs'],
       ['O', 'Only 80%', 'light, not stuffed'],
       ['W', 'Walk', '15 min after meals'],
     ],
@@ -869,11 +869,13 @@ function TodayDashboard({ today, todayDayId, onNavigate }) {
     });
   }
 
-  const mealRows = today.meals.rows.slice(0, 3).map((row, i) => {
+  // Glute days run three meals, core days two — so the icons ride on the row
+  // itself rather than a fixed list that would drift out of step.
+  const mealRows = today.meals.rows.map((row, i) => {
     const [time, name] = row.time.split(' — ');
     return {
       id: `meal-${i}`,
-      icon: ['🥑', '🥣', '🍠'][i],
+      icon: row.icon || '🍽️',
       time,
       title: name || 'Meal',
       note: row.ingredients.slice(0, 3).map(item => item.name).join(' · '),
@@ -887,7 +889,7 @@ function TodayDashboard({ today, todayDayId, onNavigate }) {
     { id: 'am-skin', icon: '☀️', title: 'Morning routine · AM skincare', note: 'Cleanse · Vitamin C · SPF', nav: ['skincare', 'am'] },
     { id: 'workout', icon: today.emoji, title: today.title, note: today.sub, nav: ['workout', null, todayDayId] },
     { id: 'cardio', icon: today.cardio?.icon || '🚶', title: today.cardio?.title || 'Walk after training', note: today.cardio?.note },
-    { id: 'sec-day', divider: true, label: '🌤️ Meals · 10 AM · 2 PM · 5 PM (sunset)' },
+    { id: 'sec-day', divider: true, label: `🌤️ Meals · ${today.meals.clock}` },
     ...mealRows,
     { id: 'sec-night', divider: true, label: '🌙 Night' },
     { id: 'body', icon: '🫧', title: 'Shower & body care', note: 'Shower · Moisturise · SPF', nav: ['skincare', 'body'] },
@@ -991,7 +993,7 @@ export default function Hero({ onNavigate }) {
   return (
     <div className="hero hero-dashboard">
       <div className="hero-brand">
-        <div className="hero-brand-tag">🌸 3 Meals · 10 AM · 2 PM · 5 PM at Sunset 🌸</div>
+        <div className="hero-brand-tag">🌸 Glute days eat early · Core days eat 12–5 🌸</div>
         <div className="hero-title-row">
           <h1 className="hero-brand-title">The <em>Goddess</em> Plan</h1>
           <DailyNotebook />
@@ -1025,9 +1027,9 @@ export default function Hero({ onNavigate }) {
       <div className="hero-pfbs hero-baby-steps splash-item">
         <div className="hero-rules-title">Gentle reminders 🌙</div>
         <div className="hero-rules">
-          <div className="hero-rule"><span>🥭</span><span>10 AM protein &amp; fats · 2 PM smoothie bowl · 5 PM sweet potato &amp; banana — nothing after sunset</span></div>
-          <div className="hero-rule"><span>🍑</span><span>Meat only on glute days (Mon · Wed · Fri) — the other days are smoothie bowls and fruit</span></div>
-          <div className="hero-rule"><span>🏋️</span><span>5 strength days: glutes &amp; quads · glute isolation · glutes &amp; hamstrings · 2 upper-body days + jump rope · weekend running &amp; forearm stand · a 20-min walk every day</span></div>
+          <div className="hero-rule"><span>🍌</span><span>Glute days: banana &amp; coffee on waking · banana &amp; protein after training · protein &amp; carbs at 5 PM</span></div>
+          <div className="hero-rule"><span>🥣</span><span>Every other day: nothing before 12 PM, nothing after 5 PM — yogurt bowl or fruit, then egg &amp; sweet potato</span></div>
+          <div className="hero-rule"><span>🏋️</span><span>3 glute days of 3 lifts each · 2 back, shoulder &amp; core days (pull-apart · row · one core video) · weekend running &amp; forearm stand · a 20-min walk every day</span></div>
           <div className="hero-rule"><span>🤍</span><span>Back &amp; shoulders: light weight, high reps, slow control — strong and pain-free, never bulky. Stop any move that hurts past 2/10.</span></div>
           <div className="hero-rule"><span>😴</span><span>Sleep 7.5–9 hours — glutes grow overnight</span></div>
           <div className="hero-rule hero-rule-bored"><span>💧</span><span>Craving? Water first, wait 10 minutes. Still hungry — eat slowly. Bored — walk, stretch, or read a page.</span></div>
