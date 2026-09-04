@@ -26,7 +26,7 @@ const RECIPE_CATEGORIES = [
     ],
   },
   {
-    title: 'Fruits (Smoothie Bowls)',
+    title: 'Fruits (bowls & plates)',
     items: [
       { key: 'papaya',    label: 'Papaya' },
       { key: 'pineapple', label: 'Pineapple' },
