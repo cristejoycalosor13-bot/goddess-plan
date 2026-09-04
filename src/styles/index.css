@@ -38,12 +38,12 @@
 }
 [data-theme="male"] .bg-layer {
   background:
-    radial-gradient(ellipse 78% 48% at 50% 22%, rgba(10,50,110,0.60) 0%, rgba(56,189,248,0.14) 38%, transparent 68%),
+    radial-gradient(ellipse 120% 40% at 50% -8%, rgba(38,110,190,0.17) 0%, rgba(20,60,120,0.06) 44%, transparent 72%),
     #020812;
 }
 [data-theme="male"] .bg-aurora {
   background:
-    radial-gradient(ellipse 60% 30% at 50% 20%, rgba(10,50,110,0.14) 0%, transparent 60%);
+    radial-gradient(ellipse 90% 32% at 50% 108%, rgba(56,189,248,0.07) 0%, transparent 66%);
 }
 
 /* ─── LIGHT MODE ─── */
@@ -67,9 +67,8 @@
 [data-mode="light"] body { background: #fff5fb; }
 [data-mode="light"] .bg-layer {
   background:
-    radial-gradient(ellipse 78% 48% at 50% 22%, rgba(255,100,180,0.18) 0%, rgba(255,200,80,0.10) 38%, transparent 68%),
+    radial-gradient(ellipse 120% 40% at 50% -8%, rgba(255,100,180,0.14) 0%, rgba(255,200,80,0.05) 44%, transparent 72%),
     #fff5fb;
-  animation: none;
 }
 [data-mode="light"] .bg-aurora  { display: none; }
 /* Light mode: fix hardcoded dark card/note backgrounds */
@@ -303,9 +302,8 @@
 [data-theme="male"][data-mode="light"] body { background: #eff6ff; }
 [data-theme="male"][data-mode="light"] .bg-layer {
   background:
-    radial-gradient(ellipse 78% 48% at 50% 22%, rgba(14,80,180,0.18) 0%, rgba(56,189,248,0.10) 38%, transparent 68%),
+    radial-gradient(ellipse 120% 40% at 50% -8%, rgba(14,80,180,0.13) 0%, rgba(56,189,248,0.05) 44%, transparent 72%),
     #eff6ff;
-  animation: none;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
