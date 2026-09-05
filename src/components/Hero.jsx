@@ -19,8 +19,8 @@ const WEEK_PILLS = [
   { label: 'Wed', emoji: '🔥', dayId: 'day-wednesday' },
   { label: 'Thu', emoji: '⚡', dayId: 'day-thursday'  },
   { label: 'Fri', emoji: '✨', dayId: 'day-friday'    },
-  { label: 'Sat', emoji: '🧘', dayId: 'day-saturday'  },
-  { label: 'Sun', emoji: '🤸', dayId: 'day-sunday'    },
+  { label: 'Sat', emoji: '🏃', dayId: 'day-saturday'  },
+  { label: 'Sun', emoji: '⚡', dayId: 'day-sunday'    },
 ];
 
 const RULE_BOARDS = [
@@ -31,7 +31,7 @@ const RULE_BOARDS = [
     items: [
       ['G', 'Gluten', 'skip bread, pasta, flour'],
       ['O', 'Oils', 'steam, boil, bake'],
-      ['D', 'Dairy', 'avoid milk, cheese, yogurt'],
+      ['D', 'Dairy', 'no milk or cheese — yogurt bowl is the one exception'],
       ['S', 'Sweet', 'fruit first, no added sugar'],
       ['S', 'Salty', 'keep seasoning light'],
       ['S', 'Stress', 'walk, breathe, sleep'],
@@ -42,7 +42,7 @@ const RULE_BOARDS = [
     emoji: '✨',
     tone: 'yes',
     items: [
-      ['P', 'Protein', 'meat on glute days · eggs & yogurt otherwise'],
+      ['P', 'Protein', 'fish on glute days · eggs, tofu & yogurt otherwise'],
       ['F', 'Fruit', 'the 12 PM meal on core days'],
       ['B', 'Bland', 'simple food, calm gut'],
       ['S', 'Small', 'steady portions'],
@@ -56,7 +56,7 @@ const RULE_BOARDS = [
       ['S', 'Small bites', 'put the fork down'],
       ['L', 'Last meal', '5 PM at sunset — protein & slow carbs'],
       ['O', 'Only 80%', 'light, not stuffed'],
-      ['W', 'Walk', '15 min after meals'],
+      ['W', 'Walk', '15 min after meals · 20 min after a glute day'],
     ],
   },
 ];

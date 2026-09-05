@@ -461,26 +461,29 @@ const DAY_LETTERS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAY_NAMES   = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
+// Mon–Sun. One scalp session a week and it lands on Sunday: you are already
+// showering after the sprints, and it sets you up for Monday. Week B adds the
+// coconut ends treatment, which is why the rotation is still two weeks long —
+// coconut is capped at once a fortnight on fine hair.
 const OIL_SCHEDULE = [
-  [ // Week A
-    [{ e: '🌸', n: 'Camellia' }, { e: '🌿', n: 'Rosemary' }],
-    [{ e: '✨', n: 'Argan' }],
-    [{ e: '🌼', n: 'Jojoba' }],
-    [],
-    [{ e: '🌸', n: 'Camellia' }],
-    [{ e: '✨', n: 'Argan' }],
-    [],
+  [ // Week A — the standard weekly session
+    [], [], [], [], [], [],
+    [{ e: '🌼', n: 'Jojoba' }, { e: '🌿', n: 'Rosemary' }, { e: '🌸', n: 'Camellia' }],
   ],
-  [ // Week B
-    [{ e: '🌸', n: 'Camellia' }, { e: '🌿', n: 'Rosemary' }],
-    [{ e: '✨', n: 'Argan' }],
-    [{ e: '🌼', n: 'Jojoba' }, { e: '🥥', n: 'Coconut' }],
-    [],
-    [{ e: '🌸', n: 'Camellia' }],
-    [{ e: '✨', n: 'Argan' }],
-    [],
+  [ // Week B — same session, plus coconut on the ends only
+    [], [], [], [], [], [],
+    [{ e: '🌼', n: 'Jojoba' }, { e: '🌿', n: 'Rosemary' }, { e: '🌸', n: 'Camellia' }, { e: '🥥', n: 'Coconut' }],
   ],
 ];
+
+// Argan is not on the calendar because it is not a weekly event — it is the
+// one drop that goes on the ends every single night.
+const NIGHTLY_ENDS = {
+  e: '🌙',
+  n: 'Argan',
+  how: '1–2 drops warmed between your palms, stroked through the bottom third of your hair only — never the scalp, never the roots. Do it on dry hair right before bed, then plait loosely or wrap in silk.',
+  why: 'Argan sits on the cuticle instead of soaking into it, so it seals the ends against overnight friction without softening fine hair into limpness. It is also the least likely of your five oils to build up night after night.',
+};
 
 const OIL_COLORS = {
   Camellia: 'rgba(255,92,157,0.18)',
@@ -493,28 +496,28 @@ const OIL_COLORS = {
 const OIL_GUIDE = {
   Camellia: {
     emoji: '🌸',
-    how: 'Warm 3–5 drops, apply to scalp and mid-lengths, massage 5 minutes. Leave 45–60 min, then shampoo out — shampoo dry hair first.',
-    tip: 'Your hero oil. Penetrates the shaft without weighing fine strands down.',
+    how: 'STEP 3 of the Sunday session. Warm 3–5 drops and work them through mid-lengths and ends, over the top of the jojoba-rosemary blend already on your scalp. Massage 5 min, leave the whole thing 45–60 min, then shampoo out — shampoo dry hair first, before any water touches it.',
+    tip: 'Your hero oil, and the one doing the actual conditioning. It penetrates the shaft without weighing fine strands down.',
   },
   Rosemary: {
     emoji: '🌿',
-    how: 'Use pre-diluted blend only — never apply rosemary neat. Apply to scalp parting lines, massage 5 min, leave 45–60 min, shampoo twice.',
-    tip: 'Always diluted. Clinical studies show it matches minoxidil for density over 6 months.',
+    how: 'STEP 2 of the Sunday session. Never neat — 3–5 drops stirred into the jojoba already in your palm. Apply along scalp parting lines only, massage 5 min. It stays on for the same 45–60 min as everything else, then shampoo twice.',
+    tip: 'Always diluted. Once a week is enough — the 6-month trial that matched minoxidil used consistency, not frequency.',
   },
   Argan: {
     emoji: '✨',
-    how: 'Use 1–2 drops on damp hair after washing. Apply mid-length to ends — never scalp. Leave in and scrunch upward.',
-    tip: 'Finishing oil only. Controls frizz and adds shine after every wash.',
+    how: 'NOT part of the Sunday session — this is your nightly one. 1–2 drops warmed between your palms, stroked through the bottom third only, on dry hair right before bed. Never the scalp. Also 1–2 drops on damp hair after any wash.',
+    tip: 'The best oil you own for overnight ends: it seals the cuticle instead of soaking in, so it protects against pillow friction without going limp on fine hair.',
   },
   Jojoba: {
     emoji: '🌼',
-    how: '3–4 drops applied directly to scalp parting lines. Massage 3–5 min. Leave 45 min, then shampoo out.',
-    tip: "Closest match to your scalp's own sebum. Best carrier oil for rosemary blend.",
+    how: 'STEP 1 of the Sunday session. Pour 3–4 drops into your palm — this is the carrier the rosemary goes into next. Apply the blend along scalp parting lines and massage 3–5 min.',
+    tip: "Closest match to your scalp's own sebum, which is why it carries the rosemary without clogging follicles. It always goes on first.",
   },
   Coconut: {
     emoji: '🥥',
-    how: '1–2 drops on the very ends only — not scalp, not mid-shaft. Set a 20-min timer. Always shampoo out completely.',
-    tip: 'Once every 2 weeks maximum. Overuse causes protein overload on fine hair.',
+    how: 'STEP 4, and only on the fortnightly Week B session. 1–2 drops on the very ends — not scalp, not mid-shaft. Add it 20 min before you wash, not at the start, so it never sits longer than that. Always shampoo out completely.',
+    tip: 'Once every 2 weeks maximum, and never as the nightly ends oil — that job belongs to argan. Coconut on fine hair every night is how protein overload starts.',
   },
 };
 
@@ -533,7 +536,7 @@ const OIL_BENEFITS = {
       { icon: '🌸', title: 'Wavy hair-safe', body: 'Does not cause protein overload on fine or wavy hair.' },
     ],
     bestFor: 'Fine, wavy, or colour-treated hair',
-    frequency: '2–3× per week (pre-wash treatment)',
+    frequency: '1× per week — Sunday session, step 3',
   },
   Rosemary: {
     emoji: '🌿',
@@ -549,7 +552,7 @@ const OIL_BENEFITS = {
       { icon: '⚠️', title: 'Must always be diluted', body: 'Rosemary essential oil is potent. Never apply neat to skin. Always dilute in a carrier oil (jojoba or camellia) before applying.' },
     ],
     bestFor: 'Hair density support and seasonal shedding',
-    frequency: '1–2× per week (always diluted, pre-wash)',
+    frequency: '1× per week — Sunday session, step 2 (always diluted)',
   },
   Argan: {
     emoji: '✨',
@@ -565,7 +568,7 @@ const OIL_BENEFITS = {
       { icon: '🌿', title: 'Scalp-free application', body: 'Use only mid-lengths and ends to avoid greasiness.' },
     ],
     bestFor: 'Post-wash finishing on all hair types, especially wavy and frizz-prone',
-    frequency: 'After every wash (1–2 drops on damp hair, leave-in)',
+    frequency: 'Every night on the ends, plus after every wash',
   },
   Jojoba: {
     emoji: '🌼',
@@ -581,7 +584,7 @@ const OIL_BENEFITS = {
       { icon: '💧', title: 'Lightweight hydration', body: 'Moisturises scalp without heaviness.' },
     ],
     bestFor: 'Scalp treatments, rosemary dilution, all hair types',
-    frequency: '1× per week (pre-wash scalp treatment, or as needed)',
+    frequency: '1× per week — Sunday session, step 1 (the carrier)',
   },
   Coconut: {
     emoji: '🥥',
@@ -594,10 +597,10 @@ const OIL_BENEFITS = {
       { icon: '💧', title: 'Deep end conditioning', body: 'A small amount softens dry, split ends temporarily.' },
       { icon: '⚠️', title: 'Fine hair caution', body: 'Fine and wavy hair is prone to protein overload. Signs: hair feels straw-like, loses elasticity, snaps instead of stretches. Use 1–2 drops, ends only.' },
       { icon: '⏱️', title: '20-minute maximum', body: 'Long exposure can cause buildup on fine hair. Set a timer and shampoo fully.' },
-      { icon: '📅', title: 'Once every 2 weeks maximum', body: 'Use only on the scheduled Week B rotation day.' },
+      { icon: '📅', title: 'Once every 2 weeks maximum', body: 'Only on the Week B Sunday session. Argan is the nightly ends oil, not this.' },
     ],
     bestFor: 'Dry, porous, or thick hair. Use with strict frequency limits on fine/wavy hair.',
-    frequency: 'Once every 2 weeks maximum (Week B only, ends only)',
+    frequency: 'Once every 2 weeks — Week B session only, ends only',
   },
 };
 
@@ -627,9 +630,9 @@ function OilDayModal({ day, monthIdx, year, oils, dayName, onClose }) {
         <div className="oil-modal-date">{dateLabel}</div>
         {isRest ? (
           <div className="oil-modal-rest">
-            <div className="oil-modal-rest-icon">🌿</div>
-            <p className="oil-modal-rest-text">Rest day — no oils today.</p>
-            <p className="oil-modal-rest-sub">Let your scalp breathe and recover. 🌸</p>
+            <div className="oil-modal-rest-icon">🌙</div>
+            <p className="oil-modal-rest-text">No scalp oiling today.</p>
+            <p className="oil-modal-rest-sub">Your scalp gets one session a week and this is not it — let it breathe. 🌸</p>
           </div>
         ) : (
           <>
@@ -638,6 +641,9 @@ function OilDayModal({ day, monthIdx, year, oils, dayName, onClose }) {
                 <span key={o.n} className="oil-modal-chip">{o.e} {o.n}</span>
               ))}
             </div>
+            <p className="oil-modal-card-tip" style={{ marginBottom: 10 }}>
+              💡 One session, in this order. Jojoba and rosemary go on the scalp, camellia over the lengths, and it all comes off together after 45–60 min.
+            </p>
             {oils.map(o => {
               const g = OIL_GUIDE[o.n];
               if (!g) return null;
@@ -651,6 +657,13 @@ function OilDayModal({ day, monthIdx, year, oils, dayName, onClose }) {
             })}
           </>
         )}
+
+        {/* The ends oil happens every night, session day included. */}
+        <div className="oil-modal-card">
+          <div className="oil-modal-card-title">🌙 Tonight · {NIGHTLY_ENDS.n} on the ends</div>
+          <p className="oil-modal-card-how">{NIGHTLY_ENDS.how}</p>
+          <p className="oil-modal-card-tip">💡 {NIGHTLY_ENDS.why}</p>
+        </div>
       </div>
     </div>
   );
@@ -709,10 +722,11 @@ function OilRotationCalendar({ onSelectOil }) {
   const monthIdx = now.getMonth();
   const today = now.getDate();
   const weeks = getMonthWeeks(year, monthIdx);
-  const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
   const [selected, setSelected] = useState(null);
 
-  const counts = { Camellia: 0, Rosemary: 0, Argan: 0, Jojoba: 0, Coconut: 0 };
+  // Argan never appears on the calendar — it is nightly, not scheduled — so it
+  // is left out of the tally rather than shown as a misleading zero.
+  const counts = { Jojoba: 0, Rosemary: 0, Camellia: 0, Coconut: 0 };
   weeks.forEach((week, wi) => {
     const wType = wi % 2;
     week.forEach((day, di) => {
@@ -735,7 +749,7 @@ function OilRotationCalendar({ onSelectOil }) {
       )}
       <div className="oil-rot-month-label">
         {MONTH_NAMES[monthIdx]} {year}
-        <span className="oil-rot-cal-hint"> · Tap a date for oil guide</span>
+        <span className="oil-rot-cal-hint"> · Sundays are session days · tap any date</span>
       </div>
       <div className="oil-rot-cal">
         <div className="oil-rot-cal-header">
@@ -772,12 +786,12 @@ function OilRotationCalendar({ onSelectOil }) {
         })}
       </div>
       <div className="oil-rot-summary">
-        <div className="oil-rot-summary-label">Your {MONTH_NAMES[monthIdx]} sessions — {daysInMonth} days</div>
+        <div className="oil-rot-summary-label">Your {MONTH_NAMES[monthIdx]} scalp sessions — argan is nightly, so it is not counted here</div>
         <div className="oil-rot-summary-grid">
           {Object.entries(counts).map(([name, n]) => (
             <button key={name} className="oil-rot-summary-item oil-rot-summary-btn" onClick={() => onSelectOil(name)}>
               <span className="oil-rot-summary-em">
-                {name === 'Camellia' ? '🌸' : name === 'Rosemary' ? '🌿' : name === 'Argan' ? '✨' : name === 'Jojoba' ? '🌼' : '🥥'}
+                {name === 'Camellia' ? '🌸' : name === 'Rosemary' ? '🌿' : name === 'Jojoba' ? '🌼' : '🥥'}
               </span>
               <span className="oil-rot-summary-name">{name}</span>
               <span className="oil-rot-summary-count">{n}×</span>
@@ -790,17 +804,35 @@ function OilRotationCalendar({ onSelectOil }) {
   );
 }
 
+// Two rituals, and they are very different sizes: one 45–60 minute scalp
+// session a week, and one drop on the ends every night. The nightly one is
+// stated first because it is the one that has to become automatic.
 function HairTab({ onSelectOil }) {
   return (
     <>
       <div className="s-header" style={{ paddingTop: 0 }}>
         <div className="s-tag">Wavy · Thin Strands</div>
-        <p className="s-desc">Tap any date for oils and application steps.</p>
+        <p className="s-desc">One scalp session a week, one drop on the ends every night.</p>
       </div>
-      <div className="divider divider-center splash-item">2-Week Oil Rotation</div>
+
+      <div className="divider divider-center splash-item">🌙 Every Night · Ends Only</div>
+      <div className="g-card splash-item" style={{ marginBottom: 14 }}>
+        <div className="oil-modal-card-title" style={{ marginBottom: 6 }}>✨ Argan on the bottom third</div>
+        <p className="oil-modal-card-how">{NIGHTLY_ENDS.how}</p>
+        <p className="oil-modal-card-tip" style={{ marginTop: 8 }}>💡 {NIGHTLY_ENDS.why}</p>
+      </div>
+      <div className="note-box note-gold splash-item" style={{ marginBottom: 18 }}>
+        🌙 <strong>Why argan and not the others?</strong> Camellia and coconut both penetrate the shaft — good once a week, too much seven nights running on fine hair. Jojoba belongs on the scalp. Argan coats rather than soaks, so it protects the ends from pillow friction and never builds up. If your ends feel genuinely dry, swap in one drop of camellia for a night or two, then go back to argan.
+      </div>
+
+      <div className="divider divider-center splash-item">🌸 Once a Week · Sunday Scalp Session</div>
+      <div className="note-box note-rose splash-item" style={{ marginBottom: 14 }}>
+        🌸 <strong>One session, four steps, 45–60 minutes.</strong> Jojoba on the scalp first, rosemary stirred into it, camellia over the lengths, then shampoo it all out — dry hair first, before any water. Every second Sunday, add coconut to the very ends for the last 20 minutes only.
+      </div>
       <OilRotationCalendar onSelectOil={onSelectOil} />
+
       <div className="note-box note-rose splash-item">
-        🚫 <strong>Avoid for thin strands:</strong> castor oil, sweet almond oil, oiling without a silk cap, dry brushing wavy hair, and coconut oil more than once every 2 weeks. Use a silk pillowcase nightly.
+        🚫 <strong>Avoid for thin strands:</strong> castor oil, sweet almond oil, oiling without a silk cap, dry brushing wavy hair, coconut oil more than once every 2 weeks, and scalp oiling more than once a week — fine hair does not need it and the buildup flattens your waves. Use a silk pillowcase nightly.
       </div>
     </>
   );

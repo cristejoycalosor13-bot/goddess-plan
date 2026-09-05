@@ -46,7 +46,7 @@ export const MONTHS = [
     tasks: [
       'Week 1 — Log your current weights on hip thrust, RDL, and sumo squat.',
       'Week 2 — Add 1–2 kg to each main lift when all sets feel controlled.',
-      'Week 3 — Add a second finisher set to each of the three glute days; those are your meat days.',
+      'Week 3 — Add one more working set to your heaviest lift on each glute day. Those are your fish days too.',
       'Week 4 — Compare lifts + glute measurements to March.',
     ],
   },
@@ -114,11 +114,11 @@ export const MONTHS = [
   {
     name: 'October',
     ch: 'Shoulder Healing & Posture',
-    why: "Shoulder pain comes from weak stabilisers and a tight chest, not weak arms. Light-load, high-rep work on the rotator cuff, lower traps, and serratus makes the joint strong and pain-free — without adding size.",
+    why: "Shoulder pain comes from weak stabilisers and a tight chest, not weak arms. The band pull-apart on both core days is the whole prescription — light load, high reps, held squeeze. It makes the joint strong and pain-free without adding size.",
     tasks: [
-      'Week 1 — Both upper-body days, mobility first. Band pull-aparts and wall angels every single session.',
+      'Week 1 — Both core days, full-body stretch first. Band pull-apart every single session, 3 × 20, no exceptions.',
       'Week 2 — Add the doorway chest stretch daily, not just on training days — the tight chest is the root cause.',
-      'Week 3 — Keep the load light and add reps instead of weight. Note pain levels before and after each session.',
+      'Week 3 — Keep the band light and add reps instead of resistance. Note pain levels before and after each session.',
       'Week 4 — Compare shoulder pain to Week 1. Only add overhead pressing once you have been pain-free 2–3 weeks.',
     ],
   },
@@ -141,7 +141,7 @@ export const MONTHS = [
     why: "Tie the rhythm together: glute days eat early and eat three times, core days hold the 12–5 window and eat twice. Fish lands on glute days only.",
     tasks: [
       'Week 1 — Run both clocks without thinking about it. Fish on Mon/Wed/Fri, yogurt bowls and fruit the rest.',
-      'Week 2 — Steam or boil all veg — no oils, no dairy, no gluten (GODSSSS out).',
+      'Week 2 — Steam or boil all veg — no oils, no gluten, and no dairy beyond the yogurt bowl (GODSSSS out).',
       'Week 3 — Notice your trigger foods; drop anything that bloats you even a little.',
       'Week 4 — Gut calm, stomach flat. Journal bloating, skin, and mood vs. June.',
     ],

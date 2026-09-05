@@ -36,12 +36,15 @@ export function getCurrentSprintProtocol() {
 // sprint-interval protocol that advances each challenge month. No lifting
 // either day.
 
-// Shared warm-up. The cool-down is ALWAYS a 20-minute walk, every day. Upper-body days add jump rope before the walk.
+// Shared warm-up. Glute days always cool down with the 20-minute walk. On the
+// back/shoulder/core days and at the weekend the walk is an ALTERNATIVE, not an
+// addition: rope OR walk on Tue/Thu, run OR walk on Sat/Sun.
 const WARMUP = { name: 'Full-Body Stretch Warm-Up', detail: '5–8 min · neck, shoulders, chest, back, hips, hamstrings, calves · loosen every major muscle before you train · dynamic swings then gentle holds' };
 const WALK = { name: '20-Minute Walk', detail: '20 min · every single day, always the last thing you do · flat easy pace, relaxed breathing · burns fat and brings your heart rate down without eating into recovery' };
 // Back, shoulder & core days finish with ONE of these two — rope if you want
 // to sweat, the walk if you want to come down quietly. Not both; pick one.
 const JUMP_ROPE = { name: 'Jump Rope', detail: '10–20 min · steady, light on the balls of your feet · pick this OR the walk to finish, not both' };
+const ALT_WALK = { name: '20-Minute Walk — instead of the rope', detail: '20 min · the alternative to the rope, not an extra lap after it · flat easy pace, relaxed breathing · take this on the days you want to come down quietly rather than sweat' };
 
 // ── VIDEOS ── Two channels only.
 // PILATES BY IZZY — 4 core workouts + her full CORE WORKOUTS playlist.
@@ -111,7 +114,7 @@ const RUN_INTERVALS = (() => {
   };
 })();
 const REST_STRETCH = { name: 'Long Full-Body Stretch', detail: '15–25 min · hold each stretch 45–60 sec · hamstrings, hips, chest, shoulders, wrists, calves · this is the work on a rest day' };
-const REST_WALK = { name: '20-Minute Walk', detail: '20 min · no pace target · you walk every day, rest days included · sunshine, podcast, whatever you like' };
+const REST_WALK = { name: '20-Minute Walk — instead of the run', detail: '20 min · the alternative to running today, not an extra lap after it · no pace target, sunshine, podcast, whatever you like · take this on any weekend your legs still feel Friday' };
 const VACUUM = { name: 'Stomach Vacuum', detail: '4 × 20 sec hold · exhale fully, pull belly button in and up, breathe shallow · do this FIRST before your core video' };
 
 // ─── MEAL PLAN ─────────────────────────────────────────────────────────────
@@ -586,9 +589,9 @@ export const WORKOUT_DAYS = [
       ...IZZY_ABS,
       ...FULLBODY_VIDEO_HEADS,
       ...NICOLE_FULLBODY,
-      H('🪢 Finish · Rope OR Walk', 'One or the other, whichever you feel like today.'),
+      H('🪢 Finish · Rope OR Walk', 'One or the other, never both. Rope if you want to sweat, walk if you want to come down quietly.'),
       JUMP_ROPE,
-      WALK,
+      ALT_WALK,
     ],
     noteAfter: { type: 'rose', text: '⚠️ Rule for every set: if it hurts past a 2 out of 10, stop that exercise. Aching muscle is good; sharp or pinching in the joint means drop the weight. Pick just ONE core video — an Izzy workout, or one of Nicole’s 30-minute full-body classes. Meals: nothing before noon — yogurt bowl or fruit at 12 PM, egg and sweet potato at 5 PM, nothing after.' },
     trackLifts: true,
@@ -636,9 +639,9 @@ export const WORKOUT_DAYS = [
       ...IZZY_ABS,
       ...FULLBODY_VIDEO_HEADS,
       ...NICOLE_FULLBODY,
-      H('🪢 Finish · Rope OR Walk', 'One or the other, whichever you feel like today.'),
+      H('🪢 Finish · Rope OR Walk', 'One or the other, never both. Rope if you want to sweat, walk if you want to come down quietly.'),
       JUMP_ROPE,
-      WALK,
+      ALT_WALK,
     ],
     noteAfter: { type: 'rose', text: '⚠️ No overhead pressing until your shoulder has been pain-free for two to three weeks. When it is, add ONE light overhead press (3 × 12) here and keep it light. Pick just ONE core video. Meals: nothing before noon — yogurt bowl or fruit at 12 PM, egg and sweet potato at 5 PM, nothing after.' },
     trackLifts: true,
@@ -670,49 +673,47 @@ export const WORKOUT_DAYS = [
   {
     emoji: '🏃', emojiBg: 'rgba(253,245,208,0.4)',
     day: 'Saturday · Run & Skill', title: 'Run, Stretch & Forearm Stand',
-    sub: 'Easy run + forearm-stand training + long stretch + 20-min walk',
-    cardio: { icon: '🏃', title: 'Easy run, then your 20-minute walk', note: '20–30 min conversational pace' },
+    sub: 'Run OR walk + forearm-stand training + long stretch',
+    cardio: { icon: '🏃', title: 'Easy run OR the 20-minute walk', note: 'pick one — 20–30 min conversational run, or the walk' },
     noteBefore: { type: 'gold', text: '🏃 No lifting today — run, train the forearm stand, and stretch long. Keep the run conversational: this is meant to leave your legs fresh for Monday, not tire them out. Stop before you feel tired.' },
     exercises: [
-      H('🏃 Running', 'First, while you are fresh. Warm up properly — a cold start is how ankles and shins get hurt.'),
+      H('🏃 Run OR Walk — pick one', 'First, while you are fresh. If you run, warm up properly — a cold start is how ankles and shins get hurt. If you would rather walk today, take the walk instead and skip the run entirely.'),
       RUN_WARMUP,
       RUN_EASY,
+      REST_WALK,
       H('🤸 Forearm Stand — Drills', 'Skill work next. Running does not tire your arms, so this is still sharp.'),
       ...FOREARM_STAND_DRILLS,
       H('▶ Forearm Stand — Videos', 'Then pick ONE to follow along with.', 'core'),
       ...HANDSTAND_INTERMEDIATE,
-      H('🤍 Stretching', 'Long, slow holds — the run tightens hips and calves, this is where you give it back.'),
+      H('🤍 Stretching', 'Long, slow holds — running tightens hips and calves, this is where you give it back.'),
       REST_STRETCH,
-      H('🚶 Cool-Down Walk', '20 minutes, any pace. Every day, no exceptions.'),
-      REST_WALK,
       H('🪷 Optional · Gentle Yoga', 'Only if you want more. Never mandatory on a rest day.', 'core'),
       ...YOGA_BEGINNER,
       H('🧘 Optional · Full Body · Move With Nicole', 'Only if you feel like moving — five short 30-minute classes.', 'core'),
       ...NICOLE_FULLBODY,
     ],
-    noteAfter: { type: 'rose', text: '💡 Order matters: run, then skill, then stretch, then the walk. The yoga and Nicole classes are optional — only if you still feel like moving. Meals: nothing before noon — yogurt bowl or fruit at 12 PM, egg and sweet potato at 5 PM, nothing after.' },
+    noteAfter: { type: 'rose', text: '💡 Order matters: run or walk first, then skill, then stretch. The run and the walk are alternatives — do one, not both. The yoga and Nicole classes are optional, only if you still feel like moving. Meals: nothing before noon — yogurt bowl or fruit at 12 PM, egg and sweet potato at 5 PM, nothing after.' },
     meals: LIGHT_MEALS,
   },
   // SUNDAY — Rest
   {
     emoji: '⚡', emojiBg: 'rgba(252,228,239,0.4)',
     day: 'Sunday · Sprints & Skill', title: 'Sprints, Stretch & Forearm Stand',
-    sub: 'Sprint intervals + forearm-stand training + long stretch + 20-min walk',
-    cardio: { icon: '⚡', title: 'Sprint intervals, then your 20-minute walk', note: 'steps up every challenge month' },
+    sub: 'Sprints OR walk + forearm-stand training + long stretch',
+    cardio: { icon: '⚡', title: 'Sprint intervals OR the 20-minute walk', note: 'pick one — the sprints step up every challenge month' },
     sprintDay: true,
     noteBefore: { type: 'gold', text: '⚡ Sprint day — the one hard run of the week. Full effort on the hard rounds, full walk on the rest; if your form falls apart, that round was your last. Then the forearm stand and a long stretch. Still no lifting.' },
     exercises: [
-      H('⚡ Sprint Intervals', 'First, while you are fresh. Warm up properly — sprinting cold is the fastest way to pull a hamstring.'),
+      H('⚡ Sprints OR Walk — pick one', 'First, while you are fresh. If you sprint, warm up properly — sprinting cold is the fastest way to pull a hamstring. On a heavy-legged week, take the walk instead and skip the sprints entirely.'),
       RUN_WARMUP,
       RUN_INTERVALS,
+      REST_WALK,
       H('🤸 Forearm Stand — Drills', 'Skill work next. Running does not tire your arms, so this is still sharp.'),
       ...FOREARM_STAND_DRILLS,
       H('▶ Forearm Stand — Videos', 'Then pick ONE to follow along with.', 'core'),
       ...HANDSTAND_INTERMEDIATE,
       H('🤍 Stretching', 'Long, slow holds — sprints tighten hamstrings and calves hard, this is where you give it back.'),
       REST_STRETCH,
-      H('🚶 Cool-Down Walk', '20 minutes, any pace. Every day, no exceptions.'),
-      REST_WALK,
       H('🪷 Optional · Gentle Yoga', 'Only if you want more. Never mandatory on a rest day.', 'core'),
       ...YOGA_BEGINNER,
       H('🧘 Optional · Full Body · Move With Nicole', 'Only if you feel like moving — five short 30-minute classes.', 'core'),
